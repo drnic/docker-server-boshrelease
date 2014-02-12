@@ -22,19 +22,10 @@ cd docker-server-boshrelease
 bosh upload release releases/docker-server-1.yml
 ```
 
-For [bosh-lite](https://github.com/cloudfoundry/bosh-lite), you can quickly create a deployment manifest & deploy a 3 VM cluster:
+For each use case below, you must use a stemcell that supports the requirements of Docker. For Ubuntu, the publicly available stemcells are not currently sufficient (as of Feb 12, 2014) and there is no imminent work by BOSH Core team to release a stemcell that supports Docker.
 
-```
-templates/make_manifest warden
-bosh -n deploy
-```
-
-For Openstack (Nova Networks), create a single VM:
-
-```
-templates/make_manifest openstack-nova
-bosh -n deploy
-```
+* [Ubuntu requirements](http://docs.docker.io/en/latest/installation/ubuntulinux/)
+* Docker should work on any CentOS stemcell
 
 For AWS EC2, create a single VM:
 
