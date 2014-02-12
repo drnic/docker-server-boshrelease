@@ -1,6 +1,15 @@
 # BOSH Release for docker-server
 
-WIP.
+WIP. Currently trying to debug the following error:
+
+```
+==> /var/vcap/sys/log/docker_server/docker_server.stderr.log <==
+2014/02/12 08:36:27 WARNING: You are running linux kernel version 3.0.0-32-virtual, which might be unstable running docker. Please upgrade your kernel to 3.8.0.
+[/var/vcap/data/docker|d8ad31bb] +job initserver()
+[/var/vcap/data/docker|d8ad31bb.initserver()] Creating server
+mkdir /var/vcap/data/docker/containers: permission denied[/var/vcap/data/docker|d8ad31bb] -job initserver() = ERR (1)
+2014/02/12 08:36:27 initserver: mkdir /var/vcap/data/docker/containers: permission denied
+```
 
 ## Usage
 
