@@ -1,0 +1,13 @@
+---
+name: docker-server
+packages: []
+templates:
+  bin/monit_debugger: bin/monit_debugger
+  bin/docker_server_ctl: bin/docker_server_ctl
+  config/docker_server.conf.erb: config/docker_server.conf
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  docker_server.leader_address:
+    description: Hostname/IP to the leader/master of the cluster
