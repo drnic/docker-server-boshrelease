@@ -1,6 +1,7 @@
 ---
-name: docker-server
-packages: []
+name: docker_server
+packages:
+- docker
 templates:
   bin/monit_debugger: bin/monit_debugger
   bin/docker_server_ctl: bin/docker_server_ctl
@@ -9,5 +10,6 @@ templates:
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
 properties:
-  docker_server.leader_address:
-    description: Hostname/IP to the leader/master of the cluster
+  docker_server.port:
+    description: Port for server daemon to listen on
+    default: 4243

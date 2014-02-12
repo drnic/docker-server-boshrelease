@@ -9,21 +9,11 @@ update:
   serial: false
 
 jobs:
-  - name: docker_server_leader_z1
-    template: docker-server
-    instances: 0
-    resource_pool: small_z1
-    networks: (( merge ))
   - name: docker_server_z1
-    template: docker-server
+    template: docker_server
     instances: 0
     resource_pool: small_z1
     networks: (( merge ))
-    update:
-      canaries: 10
-    properties:
-      docker_server:
-        leader_address: (( merge ))
 
 networks: (( merge ))
 

@@ -13,19 +13,11 @@ update:
   update_watch_time: 1000-30000
 
 jobs:
-  - name: docker_server_leader_z1
+  - name: docker_server_z1
     instances: 1
     networks:
       - name: (( meta.network_name ))
         static_ips: (( static_ips(0) ))
-  - name: docker_server_z1
-    instances: 2
-    networks:
-      - name: (( meta.network_name ))
-        static_ips: ~
-    properties:
-      docker_server:
-        leader_address: (( jobs.docker_server_leader_z1.networks.docker_server1.static_ips.[0] ))
 
 compilation:
   cloud_properties:

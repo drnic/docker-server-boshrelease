@@ -27,16 +27,9 @@ if [[ $DIRECTOR_NAME = "warden" ]]; then
   fi
 fi
 
-if [[ $DIRECTOR_CPI = "aws" ]]; then
-  if [[ $infrastructure = "aws-ec2" ]]; then
+if [[ $infrastructure = "aws-ec2" ]]; then
+  if [[ $DIRECTOR_CPI != "aws" ]]; then
     echo "Not targeting an AWS BOSH. Please use 'bosh target' before running this script."
-    exit 1
-  fi
-fi
-
-if [[ $DIRECTOR_CPI != "openstack" ]]; then
-  if [[ $infrastructure = "openstack-nova" ]]; then
-    echo "Not targeting an OpenStack BOSH. Please use 'bosh target' before running this script."
     exit 1
   fi
 fi

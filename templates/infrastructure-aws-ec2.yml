@@ -6,20 +6,13 @@ meta:
 
   stemcell:
     name: bosh-aws-xen-ubuntu
-    version: latest
+    version: 71
 
 jobs:
-  - name: docker_server_leader_z1
+  - name: docker_server_z1
     instances: 1
     networks:
       - name: (( meta.network_name ))
-  - name: docker-server_z1
-    instances: 2
-    networks:
-      - name: (( meta.network_name ))
-    properties:
-      docker_server:
-        leader_address: (( "0.docker-server-leader-z1.docker-server1." meta.environment "." meta.dns_root ))
 
 compilation:
   cloud_properties:
