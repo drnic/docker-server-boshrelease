@@ -56,3 +56,16 @@ You now suffix this file path to the `make_manifest` command:
 templates/make_manifest openstack-nova my-networking.yml
 bosh -n deploy
 ```
+
+## Development
+
+### Bump docker CLI version
+
+```
+wget https://get.docker.io/builds/Linux/x86_64/docker-latest -O docker
+mv docker blobs/docker/docker-X.Y.Z
+```
+
+Then remove the old version from `config/blobs.yml`.
+
+Next, update `packages/docker/spec` and `packages/docker/packaging` for the new version.

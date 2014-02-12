@@ -1,0 +1,5 @@
+---
+name: docker
+dependencies: []
+files:
+- docker/docker-0.8.0
