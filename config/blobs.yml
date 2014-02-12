@@ -1,1 +1,6 @@
---- {}
+---
+docker/docker-0.8.0:
+  object_id: 3c8d236d-2827-400b-9ff6-33244885a5db
+  sha: !binary |-
+    MzRlYTg1ZTVlZmRkOTI5OTU0OWYxMzVhODdiMjAwNjcwYjQ4MGIwOQ==
+  size: 15119491

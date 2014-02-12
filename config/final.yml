@@ -5,4 +5,3 @@ blobstore:
     bucket_name: docker-server-boshrelease
     access_key_id: AKIAJPWUHOHV42IMTNQQ
     secret_access_key: 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
-    encryption_key: PERSONAL_RANDOM_KEY
