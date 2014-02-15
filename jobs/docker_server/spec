@@ -21,3 +21,6 @@ properties:
   docker_server.restart_containers:
     description: Automatically restart all containers when Docker server restarted
     default: true
+  docker_server.mtu:
+    description: Set each containers' network MTU; default to the default route MTU or 1500 if not default route is available
+    default: 0

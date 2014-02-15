@@ -38,6 +38,7 @@ case $1 in
       -dns <%= dns %> \
       <% end; end %>\
       --restart=<%= p("docker_server.restart_containers") %> \
+      --mtu=<%= p("docker_server.mtu") %> \
         >>$LOG_DIR/$JOB_NAME.stdout.log \
         2>>$LOG_DIR/$JOB_NAME.stderr.log
 
