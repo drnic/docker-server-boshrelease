@@ -13,10 +13,7 @@ cd docker-server-boshrelease
 bosh upload release releases/docker-server-1.yml
 ```
 
-For each use case below, you must use a stemcell that supports the requirements of Docker. For Ubuntu, the publicly available stemcells are not currently sufficient (as of Feb 12, 2014) and there is no imminent work by BOSH Core team to release a stemcell that supports Docker.
-
-* [Ubuntu requirements](http://docs.docker.io/en/latest/installation/ubuntulinux/)
-* Docker should work on any CentOS stemcell
+### AWS
 
 For AWS EC2, upload the custom stemcell and then create a single VM:
 
@@ -32,6 +29,16 @@ Subsequent deploys where new servers are not being added can have the `templates
 templates/make_manifest aws-ec2
 bosh -n deploy
 ```
+
+### Additional infrastructures & operating systems
+
+BOSH supports AWS, OpenStack, vSphere and many other infrastuctures. There may not be stemcells available that support Docker.
+
+In this current spike it is hard coded to support Ubuntu; and thus you must use an Ubuntu stemcell that is ready to install LXC and Docker (which is automated at runtime).
+
+More work is coming for optimizing the installation of Docker; for support for CentOS; and for support for additional infrastructures.
+
+## Options
 
 There are also additional templates that you can mix in to enabled/disable/configure your Docker servers.
 
