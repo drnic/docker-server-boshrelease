@@ -36,6 +36,22 @@ bosh -n deploy
 
 Subsequent deploys where new servers are not being added can have the `templates/booting-new-server.yml` removed from the `make_manifest` line. It exists to extend the timeout long enough to allow `docker-lxc` to be installed.
 
+```
+templates/make_manifest aws-ec2
+bosh -n deploy
+```
+
+There are also additional templates that you can mix in to enabled/disable/configure your Docker servers.
+
+### Disable restarting of containers on docker restart
+
+If you are delegating the start/stop of containers to BOSH itself then you will want to disable Docker automatically restarting containers:
+
+```
+templates/make_manifest aws-ec2 templates/disable-restart-containers.yml
+bosh -n deploy
+```
+
 ### Public access to Docker server
 
 If you want to allow clients to the Docker server to access it from outside the VM, you can include the following template:

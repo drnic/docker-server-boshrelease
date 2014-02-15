@@ -35,8 +35,9 @@ case $1 in
       -H tcp://$LISTEN_ADDRESS:$PORT     \
       -H unix:///var/vcap/sys/run/docker_server/docker.sock \
       <% if_p("docker_server.dns") do |dns_items| dns_items.each do |dns| %>\
-      -dns <%= dns %>\
+      -dns <%= dns %> \
       <% end; end %>\
+      --restart=<%= p("docker_server.restart_containers") %> \
         >>$LOG_DIR/$JOB_NAME.stdout.log \
         2>>$LOG_DIR/$JOB_NAME.stderr.log
 
