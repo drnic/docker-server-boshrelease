@@ -34,7 +34,7 @@ case $1 in
       -g /var/vcap/data/docker           \
       -H tcp://$LISTEN_ADDRESS:$PORT     \
       -H unix:///var/vcap/sys/run/docker_server/docker.sock \
-      <% if_p("docker_server.dns") do |dns_items| dns_items.each do |dns| %>
+      <% if_p("docker_server.dns") do |dns_items| dns_items.each do |dns| %>\
       -dns <%= dns %>\
       <% end; end %>\
         >>$LOG_DIR/$JOB_NAME.stdout.log \
