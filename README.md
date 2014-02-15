@@ -27,9 +27,10 @@ For each use case below, you must use a stemcell that supports the requirements 
 * [Ubuntu requirements](http://docs.docker.io/en/latest/installation/ubuntulinux/)
 * Docker should work on any CentOS stemcell
 
-For AWS EC2, create a single VM:
+For AWS EC2, upload the custom stemcell and then create a single VM:
 
 ```
+bosh upload stemcell https://s3.amazonaws.com/cloudcredo-internal-distribution/bosh-stemcell-71-aws-xen-ubuntu.tgz
 templates/make_manifest aws-ec2 templates/booting-new-server.yml
 bosh -n deploy
 ```
@@ -98,3 +99,9 @@ mv docker blobs/docker/docker-X.Y.Z
 Then remove the old version from `config/blobs.yml`.
 
 Next, update `packages/docker/spec` and `packages/docker/packaging` for the new version.
+
+### Contributions
+
+* Dr Nic Williams wrote a lot of this
+* Colin Humpheries created the initial `bosh-stemcell-71-aws-xen-ubuntu` stemcell that allowed work to be kicked off
+
