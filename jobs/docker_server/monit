@@ -1,5 +1,6 @@
 check process docker_server
   with pidfile /var/vcap/sys/run/docker_server/docker_server.pid
   start program "/var/vcap/jobs/docker_server/bin/monit_debugger docker_server_ctl '/var/vcap/jobs/docker_server/bin/docker_server_ctl start'"
+    with timeout 60 seconds
   stop program "/var/vcap/jobs/docker_server/bin/monit_debugger docker_server_ctl '/var/vcap/jobs/docker_server/bin/docker_server_ctl stop'"
   group vcap

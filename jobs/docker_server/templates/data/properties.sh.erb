@@ -9,4 +9,5 @@ export JOB_INDEX=<%= index %>
 # full job name, like redis/0 or webapp/3
 export JOB_FULL="$NAME/$JOB_INDEX"
 
+export LISTEN_ADDRESS=0.0.0.0
 export PORT=<%= p("docker_server.port") %>

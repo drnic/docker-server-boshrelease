@@ -6,6 +6,7 @@ set -u # report the usage of uninitialized variables
 # Setup env vars and folders for the webapp_ctl script
 source /var/vcap/jobs/docker_server/helpers/ctl_setup.sh 'docker_server'
 
+export USER=vcap
 export LANG=en_US.UTF-8
 
 case $1 in
@@ -15,9 +16,24 @@ case $1 in
 
     mkdir -p /var/vcap/data/docker
 
-    exec docker -d -p $PIDFILE \
-      -g /var/vcap/data/docker \
-      -H tcp://0.0.0.0:$PORT \
+    if [ ! -f /etc/init.d/docker ]; then
+      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+      echo 'deb http://get.docker.io/ubuntu docker main' > /etc/apt/sources.list.d/docker.list
+
+      apt-get update -q
+
+      apt-get install -q -y lxc-docker
+
+      usermod -a -G docker "$USER"
+
+      service docker stop
+    fi
+
+    exec docker -d -p $PIDFILE           \
+      -g /var/vcap/data/docker           \
+      -H tcp://$LISTEN_ADDRESS:$PORT     \
+      -H unix:///var/vcap/sys/run/docker_server/docker.sock \
          >>$LOG_DIR/$JOB_NAME.stdout.log \
          2>>$LOG_DIR/$JOB_NAME.stderr.log
     ;;
