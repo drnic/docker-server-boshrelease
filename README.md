@@ -30,9 +30,11 @@ For each use case below, you must use a stemcell that supports the requirements 
 For AWS EC2, create a single VM:
 
 ```
-templates/make_manifest aws-ec2
+templates/make_manifest aws-ec2 templates/booting-new-server.yml
 bosh -n deploy
 ```
+
+Subsequent deploys where new servers are not being added can have the `templates/booting-new-server.yml` removed from the `make_manifest` line. It exists to extend the timeout long enough to allow `docker-lxc` to be installed.
 
 ### Override security groups
 
