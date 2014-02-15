@@ -15,3 +15,6 @@ properties:
     default: 4243
   docker_server.dns:
     description: Force docker to use specific DNS servers
+  docker_server.public_access:
+    description: Warning, only allow external access to Docker server if you know what you're doing. Docker daemon binds to 0.0.0.0 instead of 127.0.0.1
+    default: false

@@ -36,6 +36,15 @@ bosh -n deploy
 
 Subsequent deploys where new servers are not being added can have the `templates/booting-new-server.yml` removed from the `make_manifest` line. It exists to extend the timeout long enough to allow `docker-lxc` to be installed.
 
+### Public access to Docker server
+
+If you want to allow clients to the Docker server to access it from outside the VM, you can include the following template:
+
+```
+templates/make_manifest aws-ec2 templates/public-access.yml
+bosh -n deploy
+```
+
 ### Override security groups
 
 For AWS & Openstack, the default deployment assumes there is a `default` security group. If you wish to use a different security group(s) then you can pass in additional configuration when running `make_manifest` above.

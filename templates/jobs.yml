@@ -1,6 +1,7 @@
 meta:
   environment: ~
   dns: ~
+  public_access: false
 
 update:
   canaries: 1
@@ -18,6 +19,7 @@ jobs:
     properties:
       docker_server:
         dns: (( meta.dns ))
+        public_access: (( meta.public_access ))
 
 networks: (( merge ))
 
