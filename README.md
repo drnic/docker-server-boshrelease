@@ -1,4 +1,4 @@
-# BOSH Release for docker-server
+# Cluster of Docker Servers deployed with BOSH
 
 Run a cluster of VMs each running Docker server, deployed and managed with BOSH.
 
