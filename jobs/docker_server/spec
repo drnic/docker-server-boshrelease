@@ -4,7 +4,7 @@ packages:
 - docker
 templates:
   bin/monit_debugger: bin/monit_debugger
-  bin/docker_server_ctl: bin/docker_server_ctl
+  bin/docker_server_ctl.erb: bin/docker_server_ctl
   config/docker_server.conf.erb: config/docker_server.conf
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
@@ -13,3 +13,5 @@ properties:
   docker_server.port:
     description: Port for server daemon to listen on
     default: 4243
+  docker_server.dns:
+    description: Force docker to use specific DNS servers

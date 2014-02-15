@@ -5,6 +5,7 @@ meta:
   network_name: docker_server1
   security_groups:
     - docker_server
+  dns: ~
 
 director_uuid: PLACEHOLDER-DIRECTOR-UUID
 

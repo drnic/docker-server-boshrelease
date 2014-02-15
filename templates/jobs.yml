@@ -1,5 +1,6 @@
 meta:
   environment: ~
+  dns: ~
 
 update:
   canaries: 1
@@ -14,6 +15,9 @@ jobs:
     instances: 0
     resource_pool: small_z1
     networks: (( merge ))
+    properties:
+      docker_server:
+        dns: (( meta.dns ))
 
 networks: (( merge ))
 
