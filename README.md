@@ -7,18 +7,23 @@ Run a cluster of VMs each running Docker server, deployed and managed with BOSH.
 To use this bosh release, first upload it to your bosh:
 
 ```
-bosh target BOSH_HOST
 git clone https://github.com/cloudfoundry-community/docker-server-boshrelease.git
 cd docker-server-boshrelease
-bosh upload release releases/docker-server-1.yml
+bosh create release
+bosh upload release
 ```
 
 ### AWS
 
-For AWS EC2, upload the custom stemcell and then create a single VM:
+For AWS EC2, upload a stemcell that has a modern kernel that can run Docker:
 
 ```
 bosh upload stemcell https://s3.amazonaws.com/cloudcredo-internal-distribution/bosh-stemcell-71-aws-xen-ubuntu.tgz
+```
+
+Then create a single VM by creating a deployment manifest and deploying it:
+
+```
 templates/make_manifest aws-ec2 templates/booting-new-server.yml
 bosh -n deploy
 ```
