@@ -1,0 +1,3 @@
+# Extend the canary_watch_time to allow docker-lxc to be installed
+update:
+  canary_watch_time: 1000-120000
